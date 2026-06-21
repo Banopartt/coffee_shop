@@ -1,6 +1,7 @@
 
 
 class ItemsModels {
+  String id;
   String? title;
   String? price;
   String? imageUrl;
@@ -9,5 +10,5 @@ class ItemsModels {
   String? cId;
 
 
-  ItemsModels({required this.title, required this.price, required this.imageUrl, required this.description, required this.ingredients, required this.cId});
+  ItemsModels({required this.title, required this.price, required this.imageUrl, required this.description, required this.ingredients, required this.cId, required this.id});
 }

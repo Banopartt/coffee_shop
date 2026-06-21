@@ -116,7 +116,7 @@ class CategoryItemScreen extends StatelessWidget {
                     price: item.price,
                     description: item.description,
                     ingredients: item.ingredients,
-                    cId: item.cId,
+                    id: item.id,
                   );
                 },
               ),
