@@ -2,14 +2,26 @@ import 'package:flutter/material.dart';
 import '../dummy_data.dart';
 import '../widgets/category_item.dart';
 import 'package:cofe_shop/widgets/myappTheme.dart';
+import '../screens/form_cat.dart';
+
 
 class DashBoardScreen extends StatelessWidget {
   static const routeName = '/dashboard';
+
   const DashBoardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(CategoryForm.routeName);
+        },
+        backgroundColor: Theme.of(context).primaryColor,
+        child: const Icon(Icons.add),
+      ),
+
+      body: Column(
         children: [
           // Header Section
           Container(
@@ -54,8 +66,7 @@ class DashBoardScreen extends StatelessWidget {
                 prefixIcon: const Icon(Icons.search),
                 filled: true,
                 fillColor: Colors.white,
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 15),
+                contentPadding: const EdgeInsets.symmetric(vertical: 15),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none,
@@ -105,8 +116,11 @@ class DashBoardScreen extends StatelessWidget {
                 },
               ),
             ),
+            
           ),
         ],
-      );
+      ),
+    );
   }
 }
+   

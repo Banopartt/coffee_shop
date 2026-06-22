@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'widgets/myappTheme.dart';
 import 'screens/tab_screen.dart';
 import 'screens/settings_screen.dart';
-
+import './screens/form_cat.dart';
 
 void main() {
   runApp(MainApp());
@@ -33,6 +33,7 @@ class _MainAppState extends State<MainApp> {
         ItemDetailScreen.routeName: (ctx) => ItemDetailScreen(),
         SettingsScreen.routeName: (ctx) => SettingsScreen(),
         FavoriteScreen.routeName: (ctx) => FavoriteScreen(),
+        CategoryForm.routeName: (ctx) => CategoryForm(),       
       },
     );
   }

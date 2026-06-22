@@ -45,9 +45,9 @@ class _ItemWidgetState extends State<ItemWidget> {
       'title': widget.title,
       'price': widget.price,
       'imageUrl': widget.imageUrl,
-      'description': widget.description,
-      'ingredients': widget.ingredients,
-      'cId': widget.id,
+      'description': widget.description!,
+      'ingredients': widget.ingredients!,
+      'cId': widget.id!,
     },
   );
 },

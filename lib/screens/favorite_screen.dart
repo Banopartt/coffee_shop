@@ -10,31 +10,38 @@ class FavoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final favoriteIds = ItemWidget.favoriteIds;
+    final Set<String> favoriteIds = ItemWidget.favoriteIds;
+    print(favoriteIds);
 
-    return Center(
-      child: favoriteIds.isEmpty
-          ? const Text(
-              'No favorites yet!',
-              style: TextStyle(fontSize: 18, color: Colors.grey),
-            )
-            : GridView(
-              children: [
-                ...favoriteIds.map(
-                (id) => ItemWidget(
-                title: ITEMS.firstWhere((item) => item.id == id).title,
-                imageUrl: ITEMS.firstWhere((item) => item.id == id).imageUrl,
-                price: ITEMS.firstWhere((item) => item.id == id).price,
-                
-  ),
-).toList(),
-              ],
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                childAspectRatio: 3 / 4,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-              ),
-            ),
-    );
+    return favoriteIds.isEmpty
+    ? const Center(
+        child: Text(
+          'No favorites yet!',
+          style: TextStyle(fontSize: 18),
+        ),
+      )
+    : GridView(
+        padding: const EdgeInsets.all(10),
+        gridDelegate:
+            const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 200,
+          childAspectRatio: 3 / 4,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+        ),
+        children: [
+          ...favoriteIds.map((id) {
+            final item =
+                ITEMS.firstWhere((item) => item.id == id);
+
+            return ItemWidget(
+              id: item.id,
+              title: item.title,
+              imageUrl: item.imageUrl,
+              price: item.price,
+            );
+          }).toList(),
+        ],
+      );
+             
 }}
